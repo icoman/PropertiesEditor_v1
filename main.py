@@ -551,6 +551,7 @@ class MyBackground(model.Background):
             data[unicode(ix)] = d
         else:
             self.cfg['data'] = self.saved_data
+        self.saved_data = None
         self.rename_ix_props()
         self.populate_table()
         self.components.proptable.SetSelection(-1) #select last entry
@@ -562,6 +563,8 @@ class MyBackground(model.Background):
         '''
         L = self.components.proptable.GetSelectedItems()
         if L:
+            if self.saved_data is None:
+                self.saved_data = self.cfg.get('data').copy()
             ix = int(L[0][0])
             self.ed = model.childWindow(self, edprop.MyBackground)
             self.ed.position = (self.position[0]+50, self.position[1]+50)
