@@ -52,6 +52,7 @@ class MyBackground(model.Background):
         self.VERSIONS = 3 #how many doc versions to keep, at lest 2
         self.cfg = self.default_cfg()
         self.cfg['data'] = {}
+        self.saved_data = None
         self.populate_table()
         self.components.proptable.setFocus()
 
@@ -115,10 +116,12 @@ class MyBackground(model.Background):
     u'10':['name',[]],
     u'20':['description',[]],
     #mc = multiple checkbox
-    u'30':['type',['text','textarea','password','checkbox','select','mc']],
+    u'30':['type',['text','textarea','password','checkbox','select','mc','datetime']],
     u'40':['value',[]],
-    #"posturl" field is ued to populate pick list for "select" and "multiple checkbox"
-    u'50':['posturl',['','/auth/groups/all','/post1','/post2','/post3']]
+    #"posturl" field is used to populate pick list for "select" and "multiple checkbox"
+    u'50':['posturl',['','/auth/groups/all','/post1','/post2','/post3']],
+    #"format" fielf is used by "datetime"
+    u'60':['format',['','Y/m/d H:i','d/m/Y H:i']]
     }
 )
 
@@ -152,10 +155,12 @@ class MyBackground(model.Background):
     u'10':['name',[]],
     u'20':['description',[]],
     #mc = multiple checkbox
-    u'30':['type',['text','textarea','password','checkbox','select','mc']],
+    u'30':['type',['text','textarea','password','checkbox','select','mc','datetime']],
     u'40':['value',[]],
-    #"posturl" field is ued to populate pick list for "select" and "multiple checkbox"
-    u'50':['posturl',['','/auth/groups/all','/post1','/post2','/post3']]
+    #"posturl" field is used to populate pick list for "select" and "multiple checkbox"
+    u'50':['posturl',['','/auth/groups/all','/post1','/post2','/post3']],
+    #"format" fielf is used by "datetime"
+    u'60':['format',['','Y/m/d H:i','d/m/Y H:i']]
     }
 )
 
